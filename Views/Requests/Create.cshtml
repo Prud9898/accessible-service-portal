@@ -1,0 +1,50 @@
+@model ServiceRequest
+@{
+    ViewData["Title"] = "Submit a request";
+    var hasErrors = !ViewData.ModelState.IsValid;
+}
+<h1>Submit a service request</h1>
+<p>All fields are required. Required fields are marked with an asterisk (*).</p>
+@if (hasErrors)
+{
+    <div class="notice error-summary" role="alert" tabindex="-1" id="error-summary">
+        <h2>There is a problem</h2>
+        <p>Review the fields below and correct the errors.</p>
+        <div asp-validation-summary="All"></div>
+    </div>
+}
+<form asp-action="Create" method="post" novalidate>
+    @Html.AntiForgeryToken()
+    <div class="field">
+        <label asp-for="FullName">Full name <span aria-hidden="true">*</span></label>
+        <input asp-for="FullName" autocomplete="name" aria-required="true" aria-describedby="name-hint name-error" aria-invalid="@(ViewData.ModelState[nameof(Model.FullName)]?.Errors.Count > 0 ? "true" : "false")" />
+        <small id="name-hint">Enter your first and last name.</small>
+        <span id="name-error" asp-validation-for="FullName" class="field-error"></span>
+    </div>
+    <div class="field">
+        <label asp-for="Email">Email address <span aria-hidden="true">*</span></label>
+        <input asp-for="Email" type="email" autocomplete="email" aria-required="true" aria-describedby="email-error" aria-invalid="@(ViewData.ModelState[nameof(Model.Email)]?.Errors.Count > 0 ? "true" : "false")" />
+        <span id="email-error" asp-validation-for="Email" class="field-error"></span>
+    </div>
+    <div class="field">
+        <label asp-for="Category">Request category <span aria-hidden="true">*</span></label>
+        <select asp-for="Category" aria-required="true" aria-describedby="category-error" aria-invalid="@(ViewData.ModelState[nameof(Model.Category)]?.Errors.Count > 0 ? "true" : "false")">
+            <option value="">Choose a category</option>
+            <option value="Accessibility">Accessibility</option>
+            <option value="Technical support">Technical support</option>
+            <option value="General inquiry">General inquiry</option>
+        </select>
+        <span id="category-error" asp-validation-for="Category" class="field-error"></span>
+    </div>
+    <div class="field">
+        <label asp-for="Description">Request description <span aria-hidden="true">*</span></label>
+        <textarea asp-for="Description" rows="6" aria-required="true" aria-describedby="description-hint description-error" aria-invalid="@(ViewData.ModelState[nameof(Model.Description)]?.Errors.Count > 0 ? "true" : "false")"></textarea>
+        <small id="description-hint">Use 10 to 1,000 characters.</small>
+        <span id="description-error" asp-validation-for="Description" class="field-error"></span>
+    </div>
+    <button type="submit">Submit request</button>
+</form>
+@if (hasErrors)
+{
+    <script>document.addEventListener('DOMContentLoaded', () => document.getElementById('error-summary')?.focus());</script>
+}

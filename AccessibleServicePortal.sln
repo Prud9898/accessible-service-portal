@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1706.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessibleServicePortal", "AccessibleServicePortal.csproj", "{4501EE59-0B9B-4673-9D8B-DACB54D805CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4501EE59-0B9B-4673-9D8B-DACB54D805CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4501EE59-0B9B-4673-9D8B-DACB54D805CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4501EE59-0B9B-4673-9D8B-DACB54D805CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4501EE59-0B9B-4673-9D8B-DACB54D805CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {33B70ABC-11B0-499A-91D4-CFEC8B601F54}
+	EndGlobalSection
+EndGlobal
